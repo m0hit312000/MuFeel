@@ -2,10 +2,13 @@ const express = require("express");
 require("dotenv").config(); // for loading enviornment variable
 const app = express();
 const bodyParser = require("body-parser");
+const passport = require("passport");
 const mongoose = require("mongoose");
 
-app.use(bodyParser.json());
+const userRouter = require("./routes/userRouter");
+
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 const MONGO_URL = process.env.MONGO_URL;
 
@@ -18,6 +21,10 @@ mongoose
   .then(() => {
     console.log("Database Connected");
   });
+
+app.use(passport.initialize());
+require("./middleware/passport")(passport);
+app.use("/api/users", userRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
