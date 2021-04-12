@@ -15,11 +15,15 @@ const postSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    postImg: {
-      img: {
-        type: String,
+    postImg: [
+      {
+        img: {
+          type: String,
+        },
       },
-    },
+    ],
   },
   { timestamps: true }
 );
+
+module.exports = mongoose.model("Post", postSchema);
