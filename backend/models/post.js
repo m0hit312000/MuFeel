@@ -15,13 +15,9 @@ const postSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    postImg: [
-      {
-        img: {
-          type: String,
-        },
-      },
-    ],
+    postImg: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

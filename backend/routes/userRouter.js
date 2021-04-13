@@ -9,19 +9,37 @@ const User = require("../models/user");
 
 userRouter.post("/signup", (req, res) => {
   const { errors, isValid } = validateSignUpInput(req.body);
-  const { user_name, email, password, role } = req.body;
+  const {
+    user_name,
+    email,
+    password,
+    role,
+    firstname,
+    lastname,
+    profilePicture,
+  } = req.body;
 
   if (!isValid) {
     return res.status(400).json(errors);
   }
 
-  User.findOne({ email }).then((user) => {
+  User.findOne({ email, user_name }).then((user) => {
     if (user) {
       if (user.email === email) {
         return res.status(400).json({ email: "Email already exist" });
+      } else if (user.user_name === user_name) {
+        return res.status(400).json({ email: "Email already exist" });
       }
     } else {
-      const user = new User({ user_name, email, password, role });
+      const user = new User({
+        user_name,
+        email,
+        password,
+        firstname,
+        lastname,
+        profilePicture,
+        role,
+      });
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(user.password, salt, (err, hash) => {
           if (err) throw err;
@@ -39,36 +57,36 @@ userRouter.post("/signup", (req, res) => {
 });
 
 userRouter.post("/login", (req, res) => {
-  const { errors, isValid } = validateSignUpInput(req.body);
-  const { user_name, email, password } = req.body;
+  const { errors, isValid } = validateLoginInput(req.body);
 
   if (!isValid) {
     return res.status(400).json(errors);
   }
 
+  const { email, password } = req.body;
   User.findOne({ email }).then((user) => {
     if (!user) return res.status(400).json({ email: "Email not found" });
-  });
 
-  bcrypt.compare(password, user.password).then((isMatch) => {
-    if (isMatch) {
-      const payload = {
-        id: user._id,
-        user_name: user.user_name,
-        role: user.role,
-      };
-      jwt.sign(payload, SECRET, { expiresIn: "1days" }, (err, token) => {
-        if (err) {
-          console.log(err);
-        }
-        return res.json({
-          success: true,
-          token: "Bearer " + token,
+    bcrypt.compare(password, user.password).then((isMatch) => {
+      if (isMatch) {
+        const payload = {
+          id: user.id,
+          user_name: user.user_name,
+          role: user.role,
+        };
+        jwt.sign(payload, SECRET, { expiresIn: 3600 }, (err, token) => {
+          if (err) {
+            console.log(err);
+          }
+          return res.json({
+            success: true,
+            token: "Bearer " + token,
+          });
         });
-      });
-    } else {
-      return res.status(400).json({ password: "Password Incorrect" });
-    }
+      } else {
+        return res.status(400).json({ password: "Password Incorrect" });
+      }
+    });
   });
 });
 

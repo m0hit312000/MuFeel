@@ -6,6 +6,7 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 
 const userRouter = require("./routes/userRouter");
+const postRouter = require("./routes/postRouter");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -25,6 +26,7 @@ mongoose
 app.use(passport.initialize());
 require("./middleware/passport")(passport);
 app.use("/api/users", userRouter);
+app.use("/api/post", postRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
