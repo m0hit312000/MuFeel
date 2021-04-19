@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const Post = require("../models/post");
 const passport = require("passport");
 const validatePostInput = require("../validation/post");
+const { upload } = require("../middleware/upload");
 
 postRouter.get("/", (req, res) => {
   Post.find({})
@@ -37,6 +38,7 @@ postRouter.get("/author/:author", (req, res) => {
 postRouter.post(
   "/create",
   passport.authenticate("jwt", { session: false }),
+  upload.single("postImg"),
   (req, res) => {
     const author = req.user._id;
     const post = req.body;
@@ -45,6 +47,7 @@ postRouter.post(
       return res.status(400).json(errors);
     }
     post.author = author;
+    post.postImg = req.file.filename;
     const newpost = new Post(post);
     newpost
       .save()
@@ -56,16 +59,28 @@ postRouter.post(
 postRouter.put(
   "/update/:id",
   passport.authenticate("jwt", { session: false }),
+  upload.single("postImg"),
   (req, res) => {
     const author = req.user._id;
     const { errors, isValid } = validatePostInput(req.body);
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    const { title, body } = req.body;
+    const title = req.body.title;
+    const body = req.body.body;
+
+    const updates = {
+      title,
+      body,
+    };
+
+    if (req.file) {
+      const postImg = req.file.filename;
+      updates.postImg = postImg;
+    }
     Post.findOneAndUpdate(
       { author, _id: req.params.id },
-      { $set: { title, body } },
+      { $set: updates },
       { new: true }
     )
       .then((doc) => res.status(200).json(doc))

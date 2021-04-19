@@ -6,18 +6,13 @@ const SECRET = process.env.SECRET;
 const validateSignUpInput = require("../validation/signup");
 const validateLoginInput = require("../validation/login");
 const User = require("../models/user");
+const { upload } = require("../middleware/upload");
 
-userRouter.post("/signup", (req, res) => {
+userRouter.post("/signup", upload.single("profilePicture"), (req, res) => {
   const { errors, isValid } = validateSignUpInput(req.body);
-  const {
-    user_name,
-    email,
-    password,
-    role,
-    firstname,
-    lastname,
-    profilePicture,
-  } = req.body;
+  const { user_name, email, password, role, firstname, lastname } = req.body;
+
+  const profilePicture = req.file.filename;
 
   if (!isValid) {
     return res.status(400).json(errors);

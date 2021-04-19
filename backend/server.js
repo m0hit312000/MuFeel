@@ -2,6 +2,7 @@ const express = require("express");
 require("dotenv").config(); // for loading enviornment variable
 const app = express();
 const bodyParser = require("body-parser");
+const path = require("path");
 const passport = require("passport");
 const mongoose = require("mongoose");
 
@@ -25,6 +26,7 @@ mongoose
   });
 
 app.use(passport.initialize());
+app.use("/public", express.static(path.join(__dirname, "uploads")));
 require("./middleware/passport")(passport);
 app.use("/api/users", userRouter);
 app.use("/api/post", postRouter);
