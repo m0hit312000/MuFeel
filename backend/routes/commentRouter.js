@@ -16,7 +16,7 @@ commentRouter.get("/:postId", (req, res) => {
 });
 
 commentRouter.post(
-  "/:postId/create",
+  "/create/:postId",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     req.body.author = req.user._id;
@@ -43,6 +43,30 @@ commentRouter.put(
       .then((comment) => res.status(200).json(comment))
       .catch((err) =>
         res.status(400).json({ update: "Error updating comment" })
+      );
+  }
+);
+
+commentRouter.delete(
+  "/:postId/:commentId",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Comment.findById(req.params.commentId)
+      .then((comment) => {
+        if (comment.author.equals(req.user._id)) {
+          Comment.findByIdAndRemove(req.params.commentId)
+            .then((comment) => {
+              res.status(200).json(comment);
+            })
+            .catch((err) =>
+              res.status(400).json({ delete: "Error deleting the comment" })
+            );
+        } else {
+          res.status(400).json({ error: "You are not authenticated" });
+        }
+      })
+      .catch((err) =>
+        res.status(400).json({ error: "You are not authenticated" })
       );
   }
 );

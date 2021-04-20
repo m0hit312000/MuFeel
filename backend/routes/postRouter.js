@@ -67,10 +67,12 @@ postRouter.put(
       return res.status(400).json(errors);
     }
     const title = req.body.title;
+    const description = req.body.description;
     const body = req.body.body;
 
     const updates = {
       title,
+      description,
       body,
     };
 

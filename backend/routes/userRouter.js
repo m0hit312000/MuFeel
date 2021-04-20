@@ -12,7 +12,7 @@ userRouter.post("/signup", upload.single("profilePicture"), (req, res) => {
   const { errors, isValid } = validateSignUpInput(req.body);
   const { user_name, email, password, role, firstname, lastname } = req.body;
 
-  const profilePicture = req.file.filename;
+  // req.body.profilePicture = req.file.filename;
 
   if (!isValid) {
     return res.status(400).json(errors);
@@ -32,7 +32,7 @@ userRouter.post("/signup", upload.single("profilePicture"), (req, res) => {
         password,
         firstname,
         lastname,
-        profilePicture,
+        profilePicture: req.file.filename,
         role,
       });
       bcrypt.genSalt(10, (err, salt) => {
@@ -43,7 +43,7 @@ userRouter.post("/signup", upload.single("profilePicture"), (req, res) => {
             .save()
             .then((user) => res.json(user))
             .catch((err) =>
-              console.log({ error: "Error creating a new user" })
+              console.log({ error: "Error creating a new user" }, err)
             );
         });
       });

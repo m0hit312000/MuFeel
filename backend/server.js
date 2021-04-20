@@ -12,7 +12,7 @@ const commentRouter = require("./routes/commentRouter");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+mongoose.set("useFindAndModify", false);
 const MONGO_URL = process.env.MONGO_URL;
 
 mongoose
