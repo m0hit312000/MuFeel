@@ -29,7 +29,7 @@ app.use(passport.initialize());
 app.use("/public", express.static(path.join(__dirname, "uploads")));
 require("./middleware/passport")(passport);
 app.use("/api/users", userRouter);
-app.use("/api/post", postRouter);
+app.use("/api/posts", postRouter);
 app.use("/api/comments", commentRouter);
 
 const PORT = process.env.PORT || 5000;

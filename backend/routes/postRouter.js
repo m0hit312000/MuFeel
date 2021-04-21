@@ -14,7 +14,7 @@ postRouter.get("/", (req, res) => {
     .catch((err) => res.status(400).json({ user: "Error fetching post" }));
 });
 
-postRouter.get("/:id", (req, res) => {
+postRouter.get("post/:id", (req, res) => {
   Post.find({ _id: req.params.id })
     .populate("author")
     .then((post) => {

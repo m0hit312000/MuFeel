@@ -48,7 +48,7 @@ commentRouter.put(
 );
 
 commentRouter.delete(
-  "/:postId/:commentId",
+  "delete/:postId/:commentId",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Comment.findById(req.params.commentId)
