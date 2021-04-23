@@ -1,15 +1,15 @@
-import { SET_ERRORS } from "./types";
+import { authConstant } from "./types";
 
 export const setErrors = (error) => {
   return {
-    type: SET_ERRORS,
+    type: authConstant.SET_ERRORS,
     payload: error,
   };
 };
 
 export const clearErrors = () => {
   return {
-    type: SET_ERRORS,
+    type: authConstant.SET_ERRORS,
     payload: {},
   };
 };

@@ -1,12 +1,12 @@
 import { authConstant } from "../actions/types";
-const isEmpty = require("is-empty");
+var isEmpty = require("is-empty");
 
 const initialState = {
   isAuthenticated: false,
   user: {},
   userLoading: false,
 };
-
+// eslint-disable-next-line
 export default function (state = initialState, action) {
   switch (action.type) {
     case authConstant.SET_CURRENT_USER:

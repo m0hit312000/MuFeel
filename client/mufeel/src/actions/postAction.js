@@ -1,6 +1,6 @@
 import axios from "axios";
 import { postConstant } from "./types";
-import { setErrors, clearErrors } from "./errorActions";
+import { setErrors, clearErrors } from "./errorAction";
 
 export const createPost = (postData, history) => (dispatch) => {
   dispatch(togglePostLoading());

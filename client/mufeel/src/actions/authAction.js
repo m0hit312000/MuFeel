@@ -2,8 +2,8 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { authConstant } from "./types";
-import { resetPost } from "./postActions";
-import { setErrors } from "./errorActions";
+import { resetPost } from "./postAction";
+import { setErrors } from "./errorAction";
 
 export const registerUser = (userData, history) => (dispatch) => {
   dispatch(toggleUserLoading());

@@ -6107,6 +6107,11 @@
   "resolved" "https://registry.yarnpkg.com/is-docker/-/is-docker-2.1.1.tgz"
   "version" "2.1.1"
 
+"is-empty@^1.2.0":
+  "integrity" "sha1-3pu1snhzigWgsJpX4ftNSjQan2s="
+  "resolved" "https://registry.npmjs.org/is-empty/-/is-empty-1.2.0.tgz"
+  "version" "1.2.0"
+
 "is-extendable@^0.1.0", "is-extendable@^0.1.1":
   "integrity" "sha1-YrEQ4omkcUGOPsNqYX1HLjAd/Ik="
   "resolved" "https://registry.yarnpkg.com/is-extendable/-/is-extendable-0.1.1.tgz"
@@ -10452,9 +10457,9 @@
     "tweetnacl" "~0.14.0"
 
 "ssri@^6.0.1":
-  "integrity" "sha512-3Wge10hNcT1Kur4PDFwEieXSCMCJs/7WvSACcrMYrNp+b8kDL1/0wJch5Ni2WrtwEa2IO8OsVfeKIciKCDx/QA=="
-  "resolved" "https://registry.yarnpkg.com/ssri/-/ssri-6.0.1.tgz"
-  "version" "6.0.1"
+  "integrity" "sha512-cepbSq/neFK7xB6A50KHN0xHDotYzq58wWCa5LeWqnPrHG8GzfEjO/4O8kpmcGW+oaxkvhEJCWgbgNk4/ZV93Q=="
+  "resolved" "https://registry.npmjs.org/ssri/-/ssri-6.0.2.tgz"
+  "version" "6.0.2"
   dependencies:
     "figgy-pudding" "^3.5.1"
 
