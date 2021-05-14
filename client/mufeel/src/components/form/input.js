@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./input.css";
 /**
  * @author
  * @function Input
@@ -7,9 +8,10 @@ import PropTypes from "prop-types";
 
 const Input = ({ name, type, placeholder, value, onChange, onBlur, text }) => {
   return (
-    <div>
-      <label>{text.label}</label>
+    <div className="input">
+      <label className="input_label">{text.label}</label>
       <input
+        className="input_box"
         name={name}
         type={type}
         placeholder={placeholder}
@@ -18,7 +20,9 @@ const Input = ({ name, type, placeholder, value, onChange, onBlur, text }) => {
         onBlur={onBlur}
         isInvalid={text.error ? true : false}
       />
-      <div>{text.error}</div>
+      <div className="error" type="invalid">
+        {text.error}
+      </div>
     </div>
   );
 };

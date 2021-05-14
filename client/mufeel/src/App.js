@@ -2,9 +2,9 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
-import SignUp from "./components/auth/signup";
+import SignUpPage from "./containers/auth/signup/signUpPage";
 import Landing from "./components/layout/landing";
-import LoginPage from "./containers/auth/loginPage";
+import LoginPage from "./containers/auth/login/loginPage";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route path="/login" component={LoginPage} />
-            <Route path="/login" component={SignUp} />
+            <Route path="/signup" component={SignUpPage} />
           </Switch>
         </Router>
       </Provider>

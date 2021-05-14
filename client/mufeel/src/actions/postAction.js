@@ -81,7 +81,7 @@ export const updatePost = (id, postData, history) => (dispatch) => {
         payload: res.data,
       });
       dispatch(togglePostLoading());
-      history.psuh(`/blog/post/${res.data._id}`);
+      history.push(`/blog/post/${res.data._id}`);
     })
     .catch((err) => {
       dispatch(setErrors(err.response.data));

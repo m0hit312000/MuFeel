@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import Login from "../../components/auth/login";
-import Validate from "../../components/form/validate";
+import Login from "../../../components/auth/login/login";
+import Validate from "../../../components/form/validate";
 import { connect } from "react-redux";
-import { loginUser } from "../../actions/authAction";
-import { clearErrors } from "../../actions/errorAction";
+import { loginUser } from "../../../actions/authAction";
+import { clearErrors } from "../../../actions/errorAction";
 /**
  * @author
  * @function LoginPage

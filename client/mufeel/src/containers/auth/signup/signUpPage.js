@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { registerUser } from "../../actions/authAction";
-import { clearErrors } from "../../actions/errorAction";
-import Validate from "../../components/form/validate";
-import SignUp from "../../components/auth/signup";
+import { registerUser } from "../../../actions/authAction";
+import { clearErrors } from "../../../actions/errorAction";
+import Validate from "../../../components/form/validate";
+import SignUp from "../../../components/auth/signup/signup";
 
 /**
  * @author
