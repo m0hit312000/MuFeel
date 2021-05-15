@@ -21,9 +21,11 @@ const Login = ({ message, loading, user, onChange, onBlur, onSubmit }) => {
         </div>
         <div className="login_form">
           <form onSubmit={onSubmit}>
-            <Link to="/">
-              <img className="form_logo" src={logo} alt="logo" />
-            </Link>
+            <div className="logo_div">
+              <Link to="/">
+                <img className="form_logo" src={logo} alt="logo" />
+              </Link>
+            </div>
             <h2>Welcome Back</h2>
             <div>
               <Input
