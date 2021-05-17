@@ -1,5 +1,6 @@
-const DATA = [
+export const DATA = [
   {
+    id: 1,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
@@ -14,6 +15,7 @@ const DATA = [
     views: "10",
   },
   {
+    id: 2,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
@@ -28,6 +30,7 @@ const DATA = [
     views: "6",
   },
   {
+    id: 3,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
@@ -42,6 +45,7 @@ const DATA = [
     views: "7",
   },
   {
+    id: 4,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
@@ -56,6 +60,7 @@ const DATA = [
     views: "4",
   },
   {
+    id: 5,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
@@ -70,6 +75,7 @@ const DATA = [
     views: "3",
   },
   {
+    id: 6,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
@@ -84,6 +90,7 @@ const DATA = [
     views: "11",
   },
   {
+    id: 7,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
@@ -98,6 +105,7 @@ const DATA = [
     views: "13",
   },
   {
+    id: 8,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
@@ -112,6 +120,7 @@ const DATA = [
     views: "1",
   },
   {
+    id: 9,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
@@ -126,6 +135,7 @@ const DATA = [
     views: "16",
   },
   {
+    id: 10,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
@@ -140,6 +150,7 @@ const DATA = [
     views: "9",
   },
   {
+    id: 11,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
@@ -154,6 +165,7 @@ const DATA = [
     views: "8",
   },
   {
+    id: 12,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
@@ -168,6 +180,7 @@ const DATA = [
     views: "3",
   },
   {
+    id: 13,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
@@ -182,6 +195,7 @@ const DATA = [
     views: "2",
   },
   {
+    id: 14,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
@@ -196,6 +210,7 @@ const DATA = [
     views: "11",
   },
   {
+    id: 15,
     title: "Agar Tum Saath Ho",
     description:
       "agar tum saath ho is like an old box that has the name of your lover on it",
